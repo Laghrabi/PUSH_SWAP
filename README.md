@@ -12,7 +12,6 @@ Push_swap is a 42 school project where the goal is to sort a stack of integers u
 - [Operations](#operations)
 - [Algorithm](#algorithm)
 - [Evaluation](#evaluation)
-- [Resources](#resources)
 
 ---
 
@@ -113,15 +112,6 @@ The project is evaluated based on:
 2. Efficiency: The number of operations used should be minimal.
 3. Code Quality: The code should be clean, well-documented, and modular.
 4. Edge Cases: Handling duplicates, invalid input, and large datasets.
-
----
-
-## Resources
-
-- [42 Project Guidelines](https://projects.intra.42.fr/projects/push_swap)
-- [Sorting Algorithms Visualized](https://visualgo.net/en/sorting)
-- [Efficient Algorithms for Sorting Stacks](https://cs.stackexchange.com/)
-- [Push_swap Analysis on GitHub](https://github.com/)
 
 ---
 

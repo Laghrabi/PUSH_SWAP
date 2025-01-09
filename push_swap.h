@@ -12,7 +12,7 @@
 /*STRUCTURE*/
 
 typedef struct t_stack {
-    int *data;
+    int data;
     struct t_stack *next;
 } t_stack;
 

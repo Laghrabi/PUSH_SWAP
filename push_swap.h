@@ -21,6 +21,7 @@ typedef struct t_stack {
 void    swap(t_stack *stack);
 void    sa(t_stack **stackA);
 void    sb(t_stack **stackB);
+int     ft_atoi(const char *str);
 void    ss(t_stack **stackA, t_stack **stackB);
 
 #endif

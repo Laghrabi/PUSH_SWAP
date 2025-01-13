@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: laghrabichaimaa <laghrabichaimaa@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 18:14:51 by claghrab          #+#    #+#             */
-/*   Updated: 2025/01/10 18:25:58 by claghrab         ###   ########.fr       */
+/*   Updated: 2025/01/12 15:14:21 by laghrabicha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,32 @@ int is_sign(char c)
 int is_digit(char c)
 {
     return (c >= '0' && c <= 9);
+}
+
+void    clean_stack(t_stack **stack)
+{
+    t_stack *tmp;
+
+    if (!stack || !(*stack))
+        return ;
+    while (*stack)
+    {
+        tmp = (*stack)->next;
+        free(*stack);
+        *stack = tmp;
+    }
+    *stack = NULL;
+}
+
+void free_splited(char **splited)
+{
+    unsigned int i = 0;
+    if (!splited)
+        return;
+    while (splited[i])
+    {
+        free(splited[i]);
+        i++;
+    }
+    free(splited);
 }

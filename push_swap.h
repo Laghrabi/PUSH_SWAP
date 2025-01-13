@@ -16,8 +16,12 @@ typedef struct t_stack {
     struct t_stack *next;
 } t_stack;
 
-/*FUNCTIONS PROTOTYPE*/
-
+/* FUNCTIONS */
+void    free_splited(char **splited);
+char	**ft_split(char const *s, char c, char a);
+int     check_input(int ac, char **av, char ***str);
+void    exit_error(t_stack **stackA, t_stack **stackB);
+void    clean_stack(t_stack **stack);
 void    swap(t_stack *stack);
 void    sa(t_stack **stackA);
 void    sb(t_stack **stackB);

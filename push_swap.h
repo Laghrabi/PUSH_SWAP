@@ -17,10 +17,14 @@ typedef struct t_stack {
 } t_stack;
 
 /* FUNCTIONS */
+t_stack *fill_stack(int ac, char **av);
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
+t_stack	*ft_lstlast(t_stack *lst);
+t_stack	*ft_lstnew(void *content);
+void    exit_error(t_stack **stackA, t_stack **stackB);
 void    free_splited(char **splited);
 char	**ft_split(char const *s, char c, char a);
 int     check_input(int ac, char **av, char ***str);
-void    exit_error(t_stack **stackA, t_stack **stackB);
 void    clean_stack(t_stack **stack);
 void    swap(t_stack *stack);
 void    sa(t_stack **stackA);

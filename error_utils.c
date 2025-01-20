@@ -6,21 +6,21 @@
 /*   By: laghrabichaimaa <laghrabichaimaa@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 18:14:51 by claghrab          #+#    #+#             */
-/*   Updated: 2025/01/12 15:14:21 by laghrabicha      ###   ########.fr       */
+/*   Updated: 2025/01/17 17:31:24 by laghrabicha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
-int is_sign(char c)
-{
-    return (c == '+' || c == '-');
-}
+// int is_sign(char c)
+// {
+//     return (c == '+' || c == '-');
+// }
 
-int is_digit(char c)
-{
-    return (c >= '0' && c <= 9);
-}
+// int is_digit(char c)
+// {
+//     return (c >= '0' && c <= 9);
+// }
 
 void    clean_stack(t_stack **stack)
 {

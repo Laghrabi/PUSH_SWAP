@@ -17,19 +17,26 @@ typedef struct t_stack {
 } t_stack;
 
 /* FUNCTIONS */
-t_stack *fill_stack(int ac, char **av);
+size_t	ft_strlen(const char *str);
+char	*ft_strdup(const char *str);
+t_stack *fill_stack(char **av);
+int     is_sign(char c);
+int     is_digit(char c);
+char	*ft_substr(const char *s, unsigned int start, size_t len);
+char	**free_array(char **ptr, size_t i);
+size_t	count(char const *s);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 t_stack	*ft_lstlast(t_stack *lst);
-t_stack	*ft_lstnew(void *content);
+t_stack	*ft_lstnew(int content);
 void    exit_error(t_stack **stackA, t_stack **stackB);
 void    free_splited(char **splited);
-char	**ft_split(char const *s, char c, char a);
+char	**ft_split(char const *s);
 int     check_input(int ac, char **av, char ***str);
 void    clean_stack(t_stack **stack);
 void    swap(t_stack *stack);
 void    sa(t_stack **stackA);
 void    sb(t_stack **stackB);
-int     ft_atoi(const char *str);
+ssize_t     ft_atoi(const char *str);
 void    ss(t_stack **stackA, t_stack **stackB);
 
 #endif

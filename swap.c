@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions.c                                          :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: laghrabichaimaa <laghrabichaimaa@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:04:17 by claghrab          #+#    #+#             */
-/*   Updated: 2025/01/09 18:22:03 by claghrab         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:23:01 by laghrabicha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 /**
  * swap - Swaps the top two elements of the stack.

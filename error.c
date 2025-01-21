@@ -14,6 +14,8 @@ int is_number(char *av)
 {
     unsigned int    i;
 
+    if (!av)
+        return 0;
     i = 0;
     if (is_sign(av[i]) && av[i + 1] != '\0')
         i++;
@@ -24,37 +26,30 @@ int is_number(char *av)
     return (1);
 }
 
-// int is_zero(char *av)
-// {
-//     unsigned int    i;
-    
-//     if (is_sign(av[i]) && av[i + 1] != '\0')
-//         i++;
-//     while (av[i] && av[i] == '0')
-//         i++;
-//     if (av[i] != '\0')
-//         return (0);
-//     return (1);
-// }
-
-int is_dup(int ac, char **av, int flag)
+int is_dup(int ac, char **av)
 {
+    (void)ac;
     int a;
     int b;
     int j;
+    int i;
   
-    while (av[flag])
+
+    if (!av || !(*av))
+        return 0;
+    i = 0;
+    while (av[i])
     {
-        a = ft_atoi(av[flag]);
-        j = flag + 1;
-        while (av[j] && j < ac)
+        a = ft_atoi(av[i]);
+        j = i + 1;
+        while (av[j])
         {
             b = ft_atoi(av[j]);
             if (a == b)
                 return (0);
             j++;
         }
-        flag++;
+        i++;
     }
     return (1);
 }
@@ -100,35 +95,65 @@ void    exit_error(t_stack **stackA, t_stack **stackB)
 //     return (1);
 // }
 
+char	*join(char *s1, char *s2)
+{
+	char	*new;
+
+	int (i), (j);
+	i = 0;
+	j = 0;
+	if (!s1)
+	{
+		new = malloc(sizeof(char) * (ft_strlen(s2) + 2));
+		if (!new)
+			return (NULL);
+		while (s2[j])
+			new[i++] = s2[j++];
+		return (new[i++] = ' ', new[i] = '\0', new);
+	}
+	new = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
+	if (!new)
+		return (free(s1), NULL);
+	while (s1[i])
+		new[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		new[j++] = s2[i++];
+	new[j++] = ' ';
+	return (new[j] = '\0', free(s1), new);
+}
+
 int check_input(int ac, char **av, char ***str)
 {
-    int (i), (flag);
-    flag = 1;
-    int j = 0;
-    while (j < ac)
+    int i;
+    char *buffer = NULL;
+
+    i = 1;
+    while (i < ac)
     {
-        *str = ft_split(av[1]);
-        if (!(*str) || !(*str[0]))
+        buffer = join(buffer, av[i]);
+        if (!buffer)
             return (0);
-        av = *str;
-        //flag = 0;
-        j++;
+        i++;
     }
+    *str = ft_split(buffer);
+    if (!(*str) || !(*str[0]))
+        return (0);
     i = 0;
     while ((*str)[i])
     {
         if (!is_number((*str)[i]))
         {
-            if (flag == 0)
-                free_splited(*str);
+            free_splited(*str);
             return (0);
         }
+        i++;
     }
-    if (!is_dup(ac, av, flag))
+    if (!is_dup(ac, *str))
     {
-        if (flag == 0)
-            free_splited(*str);
+        free_splited(*str);
         return (0);
     }
     return (1);
 }
+

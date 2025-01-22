@@ -17,7 +17,7 @@ typedef struct t_stack {
 } t_stack;
 
 /* FUNCTIONS */
-int is_dup(int ac, char **av);
+int is_dup(char **av);
 char	*join(char *s1, char *s2);
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *str);

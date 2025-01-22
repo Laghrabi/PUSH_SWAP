@@ -1,5 +1,15 @@
 #include "push_swap.h"
 
+/**
+ * fill_stack - Fills a stack with integers from a string array.
+ * @av: Array of strings representing integers.
+ *
+ * Converts each string to an integer, validates the range, and adds
+ * it to a dynamically allocated linked list (stack). Exits on errors.
+ *
+ * Return: Pointer to the head of the created stack.
+ */
+
 t_stack *fill_stack(char **av)
 {
     ssize_t nbr;

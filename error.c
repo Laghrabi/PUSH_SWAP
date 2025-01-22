@@ -1,18 +1,18 @@
 #include "push_swap.h"
 
-int is_sign(char c)
-{
-    return (c == '+' || c == '-');
-}
-
-int is_digit(char c)
-{
-    return (c >= '0' && c <= '9');
-}
+/**
+ * is_number - Checks if a string represents a valid number.
+ * @av: The string to check.
+ *
+ * Considers optional leading signs ('+' or '-') followed by digits.
+ * Returns 1 for valid numbers, 0 otherwise.
+ *
+ * Return: 1 if the string is a number, 0 otherwise.
+ */
 
 int is_number(char *av)
 {
-    unsigned int    i;
+    int    i;
 
     if (!av)
         return 0;
@@ -26,9 +26,18 @@ int is_number(char *av)
     return (1);
 }
 
-int is_dup(int ac, char **av)
+/**
+ * is_dup - Checks for duplicate numbers in a string array.
+ * @av: The array of strings to check.
+ *
+ * Converts each string to an integer and compares for duplicates.
+ * Returns 1 if no duplicates are found, 0 otherwise.
+ *
+ * Return: 1 if no duplicates, 0 otherwise.
+ */
+
+int is_dup(char **av)
 {
-    (void)ac;
     int a;
     int b;
     int j;
@@ -54,6 +63,16 @@ int is_dup(int ac, char **av)
     return (1);
 }
 
+/**
+ * exit_error - Cleans up and exits with an error message.
+ * @stackA: Pointer to the first stack to clean.
+ * @stackB: Pointer to the second stack to clean.
+ *
+ * Frees both stacks (if not NULL), writes "Error\n" to stderr, and exits.
+ *
+ * Return: Does not return (exits program).
+ */
+
 void    exit_error(t_stack **stackA, t_stack **stackB)
 {
     if (!stackA || *stackA)
@@ -64,36 +83,16 @@ void    exit_error(t_stack **stackA, t_stack **stackB)
     exit (1);
 }
 
-// int check_input(int ac, char **av, char ***str)
-// {
-//     int (i), (flag);
-//     flag = 1;
-//     if (ac == 2)
-//     {
-//         *str = ft_split(av[1]);
-//         if (!(*str) || !(*str[0]))
-//             return (0);
-//         av = *str;
-//         flag = 0;
-//     }
-//     i = -1;
-//     while (av[flag + ++i])
-//     {
-//         if (!is_number(av[flag + i]))
-//         {
-//             if (flag == 0)
-//                 free_splited(*str);
-//             return (0);
-//         }
-//     }
-//     if (!is_dup(ac, av, flag))
-//     {
-//         if (flag == 0)
-//             free_splited(*str);
-//         return (0);
-//     }
-//     return (1);
-// }
+/**
+ * join - Concatenates two strings with a space in between.
+ * @s1: The first string (can be NULL).
+ * @s2: The second string.
+ *
+ * Allocates memory for the concatenated result. Frees the first string
+ * (if not NULL) and appends the second string with a trailing space.
+ *
+ * Return: Pointer to the concatenated string or NULL on failure.
+ */
 
 char	*join(char *s1, char *s2)
 {
@@ -123,6 +122,19 @@ char	*join(char *s1, char *s2)
 	return (new[j] = '\0', free(s1), new);
 }
 
+/**
+ * check_input - Validates and processes program input.
+ * @ac: Argument count.
+ * @av: Argument vector (array of strings).
+ * @str: Pointer to an array of strings (output).
+ *
+ * Joins all arguments into a single string, splits it into words,
+ * validates each word as a number, and checks for duplicates. Frees
+ * resources and returns 0 on error.
+ *
+ * Return: 1 if input is valid, 0 otherwise.
+ */
+
 int check_input(int ac, char **av, char ***str)
 {
     int i;
@@ -143,17 +155,10 @@ int check_input(int ac, char **av, char ***str)
     while ((*str)[i])
     {
         if (!is_number((*str)[i]))
-        {
-            free_splited(*str);
-            return (0);
-        }
+            return (free_splited(*str), 0);
         i++;
     }
-    if (!is_dup(ac, *str))
-    {
-        free_splited(*str);
-        return (0);
-    }
+    if (!is_dup(*str))
+        return (free_splited(*str), 0);
     return (1);
 }
-

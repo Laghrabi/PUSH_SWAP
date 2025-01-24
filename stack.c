@@ -36,3 +36,11 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 	else
 		tmp->next = new;
 }
+
+void	ft_lstadd_front(t_stack **stack, t_stack *new)
+{
+	if (!stack || !new)
+		return ;
+	new->next = *stack;
+	*stack = new;
+}

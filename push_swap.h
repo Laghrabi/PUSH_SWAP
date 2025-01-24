@@ -17,6 +17,16 @@ typedef struct t_stack {
 } t_stack;
 
 /* FUNCTIONS */
+void print_stack(t_stack *stack, char *name);
+void    rrr(t_stack **stackA, t_stack **stackB);
+void    rrb(t_stack **stackB);
+void    rra(t_stack **stackA);
+void    rr(t_stack **stackA, t_stack **stackB);
+void    rb(t_stack **stackB);
+void    ra(t_stack **stackA);
+void    pb(t_stack **stackA, t_stack **stackB);
+void    pa(t_stack **stackA, t_stack **stackB);
+void	ft_lstadd_front(t_stack **stack, t_stack *new);
 int is_dup(char **av);
 char	*join(char *s1, char *s2);
 size_t	ft_strlen(const char *str);

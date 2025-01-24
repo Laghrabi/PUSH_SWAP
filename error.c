@@ -75,9 +75,9 @@ int is_dup(char **av)
 
 void    exit_error(t_stack **stackA, t_stack **stackB)
 {
-    if (!stackA || *stackA)
+    if (stackA != NULL || *stackA != NULL)
         clean_stack(stackA);
-    if (!stackB || *stackB)
+    if (stackB != NULL || *stackB != NULL)
         clean_stack(stackB);
     write(2, "Error\n", 6);
     exit (1);

@@ -75,9 +75,9 @@ int is_dup(char **av)
 
 void    exit_error(t_stack **stackA, t_stack **stackB)
 {
-    if (stackA != NULL || *stackA != NULL)
+    if (stackA != NULL && *stackA != NULL)
         clean_stack(stackA);
-    if (stackB != NULL || *stackB != NULL)
+    if (stackB != NULL && *stackB != NULL)
         clean_stack(stackB);
     write(2, "Error\n", 6);
     exit (1);
@@ -99,9 +99,12 @@ char	*join(char *s1, char *s2)
 	char	*new;
 
 	int (i), (j);
+
 	i = 0;
 	j = 0;
-	if (!s1)
+    if (!s2[i]) 
+        return (NULL);
+	else if (!s1)
 	{
 		new = malloc(sizeof(char) * (ft_strlen(s2) + 2));
 		if (!new)

@@ -44,3 +44,18 @@ void	ft_lstadd_front(t_stack **stack, t_stack *new)
 	new->next = *stack;
 	*stack = new;
 }
+
+int	ft_lstsize(t_stack *stack)
+{
+	int		i;
+	t_stack	*current;
+
+	i = 0;
+	current = stack;
+	while (current)
+	{
+		i++;
+		current = current->next;
+	}
+	return (i);
+}

@@ -17,6 +17,12 @@ typedef struct t_stack {
 } t_stack;
 
 /* FUNCTIONS */
+void    push_min_to_b(t_stack **stackA, t_stack **stackB, int min_pos);
+t_stack *only_4(t_stack **stackA, t_stack **stackB);
+t_stack *algo(t_stack *stackA, t_stack *stackB, int size);
+t_stack *only_3(t_stack **stackA, t_stack **stackB);
+int find_position(t_stack *stack);
+int	ft_lstsize(t_stack *stack);
 void print_stack(t_stack *stack, char *name);
 void    rrr(t_stack **stackA, t_stack **stackB);
 void    rrb(t_stack **stackB);

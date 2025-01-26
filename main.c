@@ -24,9 +24,10 @@ void print_stack(t_stack *stack, char *name)
 
 int main(int ac, char **av)
 {
+    int i;
     char    **chunks;
     t_stack *stackA;
-    t_stack *stackB = NULL;
+    //t_stack *stackB = NULL;
     int size;
 
     chunks = NULL;
@@ -43,14 +44,21 @@ int main(int ac, char **av)
         printf("[%d]\n", cur->data);
         cur = cur->next;
     }
-    stackA = algo(stackA, stackB, size);
-    cur = stackA;
-    printf("Stack A after:\n");
-    while (cur)
+    int *arr = allocate_array(stackA, size);
+    i = 0;
+    while (i < size)
     {
-        printf("[%d]\n", cur->data);
-        cur = cur->next;
+        printf("%d\n", arr[i]);
+        i++;
     }
+    // stackA = algo(stackA, stackB, size);
+    // cur = stackA;
+    // printf("Stack A after:\n");
+    // while (cur)
+    // {
+    //     printf("[%d]\n", cur->data);
+    //     cur = cur->next;
+    // }
     //t_stack *b = stackB;
     // printf("Stack B after:\n");
     // while (b)

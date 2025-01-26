@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laghrabichaimaa <laghrabichaimaa@studen    +#+  +:+       +#+        */
+/*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:04:17 by claghrab          #+#    #+#             */
-/*   Updated: 2025/01/20 15:23:01 by laghrabicha      ###   ########.fr       */
+/*   Updated: 2025/01/26 16:57:35 by claghrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,16 @@
  */
 void    swap(t_stack *stack)
 {
-    t_stack *tmp;
+    int tmp;
 
     if (stack && stack->next)
     {
-        tmp = stack->next;
-        stack->next = tmp->next;
-        tmp->next = stack;
+        // tmp = stack->next;
+        // stack->next = tmp->next;
+        // tmp->next = stack;
+        tmp = stack->data;
+        stack->data = stack->next->data;
+        stack->next->data = tmp;
     }
 }
 

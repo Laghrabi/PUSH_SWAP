@@ -14,9 +14,13 @@
 typedef struct t_stack {
     int data;
     struct t_stack *next;
+    int index;
+    int position;
 } t_stack;
 
 /* FUNCTIONS */
+void    bubble_sort(int *arr, int size);
+int *allocate_array(t_stack *stackA, int size);
 void    push_min_to_b(t_stack **stackA, t_stack **stackB, int min_pos);
 t_stack *only_4(t_stack **stackA, t_stack **stackB);
 t_stack *algo(t_stack *stackA, t_stack *stackB, int size);

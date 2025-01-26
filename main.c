@@ -27,6 +27,7 @@ int main(int ac, char **av)
     char    **chunks;
     t_stack *stackA;
     t_stack *stackB = NULL;
+    int size;
 
     chunks = NULL;
     if (ac < 2)
@@ -34,12 +35,31 @@ int main(int ac, char **av)
     if (!check_input(ac, av, &chunks))
         exit_error(NULL, NULL);
     stackA = fill_stack(chunks);
-    // printf("Stack A before:\n");
-    // while (stackA)
+    size = ft_lstsize(stackA);
+    t_stack *cur = stackA;
+    printf("Stack A before:\n");
+    while (cur)
+    {
+        printf("[%d]\n", cur->data);
+        cur = cur->next;
+    }
+    stackA = algo(stackA, stackB, size);
+    cur = stackA;
+    printf("Stack A after:\n");
+    while (cur)
+    {
+        printf("[%d]\n", cur->data);
+        cur = cur->next;
+    }
+    //t_stack *b = stackB;
+    // printf("Stack B after:\n");
+    // while (b)
     // {
-    //     printf("[%d]\n", stackA->data);
-    //     stackA = stackA->next;
+    //     //printf("7\n");
+    //     printf("[%d]\n", b->data);
+    //     b = b->next;
     // }
+    // printf("stack size: %d\n", size);
     // ra(&stackA);
     // printf("Stack A after:\n");
     // while (stackA)
@@ -47,29 +67,32 @@ int main(int ac, char **av)
     //     printf("[%d]\n", stackA->data);
     //     stackA = stackA->next;
     // }
-    // Step 2: Print initial stacks
-    print_stack(stackA, "Stack A");
-    print_stack(stackB, "Stack B");
 
-    // Step 3: Test operations
-    pb(&stackA, &stackB); // Move top of A to B
-    print_stack(stackA, "Stack A after pb");
-    print_stack(stackB, "Stack B after pb");
 
-    pa(&stackA, &stackB); // Move top of B back to A
-    print_stack(stackA, "Stack A after pa");
-    print_stack(stackB, "Stack B after pa");
+    // print_stack(stackA, "Stack A");
+    // print_stack(stackB, "Stack B");
 
-    ra(&stackA); // Rotate A
-    print_stack(stackA, "Stack A after ra");
+    // sa(&stackA);
+    // print_stack(stackA, "Stack A after sa");
+    // print_stack(stackB, "Stack B after sa");
 
-    rra(&stackA); // Reverse Rotate A
-    print_stack(stackA, "Stack A after rra");
 
-    // Additional tests for your functions...
+    // pb(&stackA, &stackB);
+    // print_stack(stackA, "Stack A after pb");
+    // print_stack(stackB, "Stack B after pb");
+
+    // pa(&stackA, &stackB);
+    // print_stack(stackA, "Stack A after pa");
+    // print_stack(stackB, "Stack B after pa");
+
+    // ra(&stackA);
+    // print_stack(stackA, "Stack A after ra");
+
+    // rra(&stackA);
+    // print_stack(stackA, "Stack A after rra");
+
     
-    // Clean up stacks
-    clean_stack(&stackA);
-    clean_stack(&stackB);
+    // clean_stack(&stackA);
+    // clean_stack(&stackB);
     return (0);
 }

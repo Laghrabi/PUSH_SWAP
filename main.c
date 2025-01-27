@@ -44,12 +44,21 @@ int main(int ac, char **av)
         printf("[%d]\n", cur->data);
         cur = cur->next;
     }
+    printf("Sorted array:\n");
     int *arr = allocate_array(stackA, size);
     i = 0;
     while (i < size)
     {
-        printf("%d\n", arr[i]);
+        printf("[%d] ", arr[i]);
         i++;
+    }
+    set_index_stackA(stackA, arr, size);
+    printf("Stack A index:\n");
+    cur = stackA;
+    while (cur)
+    {
+        printf("[%d]\n", cur->index);
+        cur = cur->next;
     }
     // stackA = algo(stackA, stackB, size);
     // cur = stackA;

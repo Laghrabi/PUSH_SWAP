@@ -19,6 +19,7 @@ typedef struct t_stack {
 } t_stack;
 
 /* FUNCTIONS */
+void    set_index_stackA(t_stack *stackA, int *arr, int size);
 void    bubble_sort(int *arr, int size);
 int *allocate_array(t_stack *stackA, int size);
 void    push_min_to_b(t_stack **stackA, t_stack **stackB, int min_pos);

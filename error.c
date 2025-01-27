@@ -99,7 +99,6 @@ char	*join(char *s1, char *s2)
 	char	*new;
 
 	int (i), (j);
-
 	i = 0;
 	j = 0;
     if (!s2[i]) 
@@ -152,6 +151,7 @@ int check_input(int ac, char **av, char ***str)
         i++;
     }
     *str = ft_split(buffer);
+    free(buffer);
     if (!(*str) || !(*str[0]))
         return (0);
     i = 0;

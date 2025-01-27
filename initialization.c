@@ -28,7 +28,7 @@ t_stack *fill_stack(char **av)
         new_node = ft_lstnew((int)nbr);
         if (!new_node)
             exit_error(&stack, NULL);
-        ft_lstadd_back(&stack, ft_lstnew((int)nbr));
+        ft_lstadd_back(&stack, new_node);
         i++;
     }
     return (stack);

@@ -36,6 +36,7 @@ int main(int ac, char **av)
     if (!check_input(ac, av, &chunks))
         exit_error(NULL, NULL);
     stackA = fill_stack(chunks);
+    free_splited(chunks);
     size = ft_lstsize(stackA);
     // t_stack *cur = stackA;
     // printf("Stack A before:\n");
@@ -111,7 +112,7 @@ int main(int ac, char **av)
     // print_stack(stackA, "Stack A after rra");
 
     
-    // clean_stack(&stackA);
-    // clean_stack(&stackB);
+    clean_stack(&stackA);
+    clean_stack(&stackB);
     return (0);
 }

@@ -68,21 +68,11 @@ t_stack *algo(t_stack *stackA, t_stack *stackB, int size)
         return (only_4(&stackA, &stackB));
     else if (size <= 5)
         return (only_5(&stackA, &stackB));
-    else if (size <= 100)
-    {
-        arr = allocate_array(stackA, size);
-        set_index_stackA(stackA, arr, size);
-        into_stackB_100(&stackA, &stackB);
-        set_position_stackB(stackB);
-        bettom_or_top(stackB);
-        sort_stackB(&stackA, &stackB);
-        return (stackA);
-    }
     else
     {
         arr = allocate_array(stackA, size);
         set_index_stackA(stackA, arr, size);
-        into_stackB_500(&stackA, &stackB);
+        into_stackB(&stackA, &stackB, size);
         set_position_stackB(stackB);
         bettom_or_top(stackB);
         sort_stackB(&stackA, &stackB);

@@ -13,12 +13,20 @@
 
 typedef struct t_stack {
     int data;
-    struct t_stack *next;
     int index;
     int position;
+    int below_line;
+    struct t_stack *next;
 } t_stack;
 
 /* FUNCTIONS */
+void    into_stackB_500(t_stack **stackA, t_stack **stackB);
+void    sort_stackB(t_stack **stackA, t_stack **stackB);
+void    put_on_top(t_stack **stackA, t_stack **stackB, int b_size);
+t_stack *greater_index(t_stack *stackB, int b_size);
+void    bettom_or_top(t_stack *stackB);
+void    set_position_stackB(t_stack *stackB);
+void    into_stackB_100(t_stack **stackA, t_stack **stackB);
 void    set_index_stackA(t_stack *stackA, int *arr, int size);
 void    bubble_sort(int *arr, int size);
 int *allocate_array(t_stack *stackA, int size);

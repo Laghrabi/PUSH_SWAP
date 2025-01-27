@@ -24,10 +24,10 @@ void print_stack(t_stack *stack, char *name)
 
 int main(int ac, char **av)
 {
-    int i;
+    //int i;
     char    **chunks;
     t_stack *stackA;
-    //t_stack *stackB = NULL;
+    t_stack *stackB = NULL;
     int size;
 
     chunks = NULL;
@@ -37,30 +37,32 @@ int main(int ac, char **av)
         exit_error(NULL, NULL);
     stackA = fill_stack(chunks);
     size = ft_lstsize(stackA);
-    t_stack *cur = stackA;
-    printf("Stack A before:\n");
-    while (cur)
-    {
-        printf("[%d]\n", cur->data);
-        cur = cur->next;
-    }
-    printf("Sorted array:\n");
-    int *arr = allocate_array(stackA, size);
-    i = 0;
-    while (i < size)
-    {
-        printf("[%d] ", arr[i]);
-        i++;
-    }
-    set_index_stackA(stackA, arr, size);
-    printf("Stack A index:\n");
-    cur = stackA;
-    while (cur)
-    {
-        printf("[%d]\n", cur->index);
-        cur = cur->next;
-    }
-    // stackA = algo(stackA, stackB, size);
+    // t_stack *cur = stackA;
+    // printf("Stack A before:\n");
+    // while (cur)
+    // {
+    //     printf("[%d]\n", cur->data);
+    //     cur = cur->next;
+    // }
+    // printf("Sorted array:\n");
+    // int *arr = allocate_array(stackA, size);
+    // i = 0;
+    // while (i < size)
+    // {
+    //     printf("[%d] ", arr[i]);
+    //     i++;
+    // }
+    // set_index_stackA(stackA, arr, size);
+    // printf("Stack A index:\n");
+    // cur = stackA;
+    // while (cur)
+    // {
+    //     printf("[%d]\n", cur->index);
+    //     cur = cur->next;
+    // }
+
+
+    stackA = algo(stackA, stackB, size);
     // cur = stackA;
     // printf("Stack A after:\n");
     // while (cur)

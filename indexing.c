@@ -6,7 +6,7 @@
 /*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 00:44:13 by claghrab          #+#    #+#             */
-/*   Updated: 2025/01/27 20:01:25 by claghrab         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:23:24 by claghrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,34 +48,33 @@ void    set_position_stackB(t_stack *stackB)
     }
 }
 
-void    bettom_or_top(t_stack *stackB)
+void    bottom_or_top(t_stack *stack)
 {
-    int b_size;
+    int size;
     
-    if (stackB == NULL)
+    if (stack == NULL)
         return ;
-    b_size = ft_lstsize(stackB);
-    while (stackB)
+    size = ft_lstsize(stack);
+    while (stack)
     {
-        if (stackB->position < (b_size / 2))
-            stackB->below_line = 0;
+        if (stack->position < (size / 2))
+            stack->below_line = 0;
         else
-            stackB->below_line = 1;
-        stackB = stackB->next;
+            stack->below_line = 1;
+        stack = stack->next;
     }
     
 }
 
-t_stack *greater_index(t_stack *stackB, int b_size)
+t_stack *greater_index(t_stack *stack, int b_size)
 {
-    if (stackB == NULL)
+    if (stack == NULL)
         return (NULL);
-    while (stackB)
+    while (stack)
     {
-        if (stackB->index == (b_size - 1))
-            return (stackB);
-        stackB = stackB->next;
+        if (stack->index == (b_size - 1))
+            return (stack);
+        stack = stack->next;
     }
     return (NULL);
 }
-

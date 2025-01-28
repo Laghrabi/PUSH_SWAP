@@ -42,4 +42,36 @@ void    push_min_to_b(t_stack **stackA, t_stack **stackB, int min_pos)
         ra(stackA);
         pb(stackA, stackB);
     }
+    else if (min_pos == 3)
+    {
+        rra(stackA);
+        rra(stackA);
+        pb(stackA, stackB);
+    }
+    else if (min_pos == 4)
+    {
+        rra(stackA);
+        pb(stackA, stackB);
+    }
+}
+void    push_min_second_to_b(t_stack **stackA, t_stack **stackB, int min_pos)
+{
+    if(min_pos == 0)
+        pb(stackA, stackB);
+    else if (min_pos == 1)
+    {
+        sa(stackA);
+        pb(stackA, stackB);
+    }
+    else if (min_pos == 2)
+    {
+        ra(stackA);
+        ra(stackA);
+        pb(stackA, stackB);
+    }
+    else if (min_pos == 3)
+    {
+        rra(stackA);
+        pb(stackA, stackB);
+    }
 }

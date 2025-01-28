@@ -84,7 +84,7 @@ void    sort_stackB(t_stack **stackA, t_stack **stackB)
     {
         b_size = ft_lstsize(*stackB);
         set_position_stackB(*stackB);
-        bettom_or_top(*stackB);
+        bottom_or_top(*stackB);
         put_on_top(stackA, stackB, b_size);
         i--;
     }

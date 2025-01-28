@@ -20,11 +20,13 @@ typedef struct t_stack {
 } t_stack;
 
 /* FUNCTIONS */
+t_stack *only_4(t_stack **stackA, t_stack **stackB);
+void    push_min_second_to_b(t_stack **stackA, t_stack **stackB, int min_pos);
 void    into_stackB(t_stack **stackA, t_stack **stackB, int size);
 void    sort_stackB(t_stack **stackA, t_stack **stackB);
 void    put_on_top(t_stack **stackA, t_stack **stackB, int b_size);
-t_stack *greater_index(t_stack *stackB, int b_size);
-void    bettom_or_top(t_stack *stackB);
+t_stack *greater_index(t_stack *stack, int b_size);
+void    bottom_or_top(t_stack *stack);
 void    set_position_stackB(t_stack *stackB);
 void    into_stackB_100(t_stack **stackA, t_stack **stackB, int size);
 void    set_index_stackA(t_stack *stackA, int *arr, int size);
@@ -33,10 +35,9 @@ int *allocate_array(t_stack *stackA, int size);
 void    push_min_to_b(t_stack **stackA, t_stack **stackB, int min_pos);
 t_stack *only_4(t_stack **stackA, t_stack **stackB);
 t_stack *algo(t_stack *stackA, t_stack *stackB, int size);
-t_stack *only_3(t_stack **stackA, t_stack **stackB);
+t_stack *only_3(t_stack **stackA, t_stack **stackB, int size);
 int find_position(t_stack *stack);
 int	ft_lstsize(t_stack *stack);
-void print_stack(t_stack *stack, char *name);
 void    rrr(t_stack **stackA, t_stack **stackB);
 void    rrb(t_stack **stackB);
 void    rra(t_stack **stackA);

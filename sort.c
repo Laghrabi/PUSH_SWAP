@@ -1,4 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/28 19:36:47 by claghrab          #+#    #+#             */
+/*   Updated: 2025/01/28 19:39:00 by claghrab         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+
+/**
+ * if_sorted - Checks if a stack is sorted in ascending order.
+ * @stack: Pointer to the stack to check.
+ *
+ * Returns 1 if sorted or empty, 0 otherwise.
+ */
 
 int if_sorted(t_stack *stack)
 {
@@ -12,6 +31,15 @@ int if_sorted(t_stack *stack)
     }
     return (1);
 }
+
+/**
+ * only_3 - Sorts a stack with up to 3 elements.
+ * @stackA: Double pointer to stackA.
+ * @stackB: Double pointer to stackB (unused).
+ * @size: Size of stackA (unused).
+ *
+ * Sorts stackA if it contains up to 3 elements. Returns the sorted stackA.
+ */
 
 t_stack *only_3(t_stack **stackA, t_stack **stackB, int size)
 {
@@ -31,6 +59,15 @@ t_stack *only_3(t_stack **stackA, t_stack **stackB, int size)
     return (*stackA);
 }
 
+/**
+ * only_4 - Sorts a stack with 4 elements.
+ * @stackA: Double pointer to stackA.
+ * @stackB: Double pointer to stackB (used as temporary storage).
+ *
+ * Sorts stackA by moving the smallest element to stackB, sorting the remaining 3 elements,
+ * and moving the smallest element back. Returns the sorted stackA.
+ */
+
 t_stack *only_4(t_stack **stackA, t_stack **stackB)
 {
     int min_pos;
@@ -43,6 +80,15 @@ t_stack *only_4(t_stack **stackA, t_stack **stackB)
     pa(stackA, stackB);
     return (*stackA);
 }
+
+/**
+ * only_5 - Sorts a stack with 5 elements.
+ * @stackA: Double pointer to stackA.
+ * @stackB: Double pointer to stackB (used as temporary storage).
+ *
+ * Sorts stackA by moving the two smallest elements to stackB, sorting the remaining 3 elements,
+ * and moving the smallest elements back. Returns the sorted stackA.
+ */
 
 t_stack *only_5(t_stack **stackA, t_stack **stackB)
 {
@@ -59,6 +105,16 @@ t_stack *only_5(t_stack **stackA, t_stack **stackB)
     pa(stackA, stackB);
     return (*stackA);
 }
+
+/**
+ * algo - Executes the sorting algorithm for a stack of any size.
+ * @stackA: Pointer to the initial stackA.
+ * @stackB: Pointer to the initial stackB.
+ * @size: Number of elements in stackA.
+ *
+ * Depending on size, sorts stackA using specialized functions (for sizes <= 5)
+ * or a more complex algorithm (for larger sizes). Returns the sorted stackA or NULL.
+ */
 
 t_stack *algo(t_stack *stackA, t_stack *stackB, int size)
 {

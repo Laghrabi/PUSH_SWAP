@@ -1,28 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/28 19:22:32 by claghrab          #+#    #+#             */
+/*   Updated: 2025/01/28 19:23:18 by claghrab         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-// void    into_stackB_100(t_stack **stackA, t_stack **stackB)
-// {
-//     int b_size;
-//     t_stack *current;
-    
-//     if (stackA == NULL || stackB == NULL || *stackA == NULL)
-//         return ;
-//     current = *stackA;
-//     while (current)
-//     {
-//         b_size = ft_lstsize(*stackB);
-//         if (current->index < b_size)
-//         {
-//             pb(stackA, stackB);
-//             rb(stackB);
-//         }
-//         else if (current->index < (b_size + 13))
-//             pb(stackA, stackB);
-//         else
-//             ra(stackA);
-//         current = *stackA;
-//     }
-// }
+/**
+ * into_stackB - Pushes elements from stackA to stackB in chunks based on their index.
+ * @stackA: Double pointer to the head of stackA.
+ * @stackB: Double pointer to the head of stackB.
+ * @size: Size of stackA, used to determine the chunk size.
+ *
+ * Uses chunk-based logic to move elements from stackA to stackB:
+ * - Elements with an index less than the current size of stackB are pushed to stackB,
+ *   and the stackB is rotated.
+ * - Elements within the current chunk range are pushed to stackB.
+ * - Other elements are rotated in stackA to cycle through the list.
+ * Helps prepare stackB for sorting by dividing stackA into manageable chunks.
+ */
 
 void    into_stackB(t_stack **stackA, t_stack **stackB, int size)
 {
@@ -53,6 +55,19 @@ void    into_stackB(t_stack **stackA, t_stack **stackB, int size)
     }
 }
 
+/**
+ * put_on_top - Moves a specific node in stackB with the greatest index to the top.
+ * @stackA: Double pointer to the head of stackA.
+ * @stackB: Double pointer to the head of stackB.
+ * @b_size: Size of stackB, used to find the node with the greatest index.
+ *
+ * Finds the node in stackB with the highest index using the greater_index function.
+ * Rotates stackB to bring that node to the top:
+ * - Rotates forward if the node is in the top half (below_line == 0).
+ * - Rotates backward if the node is in the bottom half (below_line == 1).
+ * Finally, pushes the node to stackA.
+ */
+
 void    put_on_top(t_stack **stackA, t_stack **stackB, int b_size)
 {
     t_stack *node;
@@ -71,6 +86,20 @@ void    put_on_top(t_stack **stackA, t_stack **stackB, int b_size)
     }
     pa(stackA, stackB);
 }
+
+/**
+ * sort_stackB - Sorts stackB by moving elements back to stackA in descending order.
+ * @stackA: Double pointer to the head of stackA.
+ * @stackB: Double pointer to the head of stackB.
+ *
+ * Iteratively identifies the node with the greatest index in stackB and moves it
+ * to stackA:
+ * - Calculates the size of stackB.
+ * - Updates positions and below_line flags for stackB.
+ * - Uses put_on_top to bring the node with the greatest index to the top.
+ * - Pushes the top node of stackB to stackA.
+ * Continues until all nodes are moved from stackB to stackA.
+ */
 
 void    sort_stackB(t_stack **stackA, t_stack **stackB)
 {

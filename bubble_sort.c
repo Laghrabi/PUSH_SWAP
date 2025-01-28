@@ -6,11 +6,22 @@
 /*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:16:11 by claghrab          #+#    #+#             */
-/*   Updated: 2025/01/27 00:21:38 by claghrab         ###   ########.fr       */
+/*   Updated: 2025/01/28 19:19:02 by claghrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/**
+ * allocate_array - Allocates and fills an array with stack data.
+ * @stackA: Pointer to the stack containing data.
+ * @size: Number of elements in the stack.
+ *
+ * Extracts data from the stack into an array, sorts it using bubble sort, 
+ * and returns a pointer to the allocated array. Returns NULL on failure.
+ *
+ * Return: Pointer to the sorted array, or NULL on failure.
+ */
 
 int *allocate_array(t_stack *stackA, int size)
 {
@@ -31,6 +42,14 @@ int *allocate_array(t_stack *stackA, int size)
     bubble_sort(arr, size);
     return (arr);
 }
+
+/**
+ * bubble_sort - Sorts an array of integers using bubble sort.
+ * @arr: Pointer to the array to be sorted.
+ * @size: Size of the array.
+ *
+ * Repeatedly compares adjacent elements and swaps them if out of order.
+ */
 
 void    bubble_sort(int *arr, int size)
 {

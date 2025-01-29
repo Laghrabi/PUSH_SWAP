@@ -6,7 +6,7 @@
 /*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:20:01 by claghrab          #+#    #+#             */
-/*   Updated: 2025/01/28 19:20:04 by claghrab         ###   ########.fr       */
+/*   Updated: 2025/01/29 14:45:45 by claghrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 int is_number(char *av)
 {
-    int    i;
+    int i;
 
     if (!av)
         return 0;
@@ -54,7 +54,6 @@ int is_dup(char **av)
     int b;
     int j;
     int i;
-  
 
     if (!av || !(*av))
         return 0;
@@ -85,14 +84,14 @@ int is_dup(char **av)
  * Return: Does not return (exits program).
  */
 
-void    exit_error(t_stack **stackA, t_stack **stackB)
+void exit_error(t_stack **stackA, t_stack **stackB)
 {
     if (stackA != NULL && *stackA != NULL)
         clean_stack(stackA);
     if (stackB != NULL && *stackB != NULL)
         clean_stack(stackB);
     write(2, "Error\n", 6);
-    exit (1);
+    exit(1);
 }
 
 /**
@@ -106,34 +105,34 @@ void    exit_error(t_stack **stackA, t_stack **stackB)
  * Return: Pointer to the concatenated string or NULL on failure.
  */
 
-char	*join(char *s1, char *s2)
+char *join(char *s1, char *s2)
 {
-	char	*new;
+    char *new;
 
-	int (i), (j);
-	i = 0;
-	j = 0;
-    if (!s2[i]) 
+    int(i), (j);
+    i = 0;
+    j = 0;
+    if (!s2[i])
         return (NULL);
-	else if (!s1)
-	{
-		new = malloc(sizeof(char) * (ft_strlen(s2) + 2));
-		if (!new)
-			return (NULL);
-		while (s2[j])
-			new[i++] = s2[j++];
-		return (new[i++] = ' ', new[i] = '\0', new);
-	}
-	new = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
-	if (!new)
-		return (free(s1), NULL);
-	while (s1[i])
-		new[j++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		new[j++] = s2[i++];
-	new[j++] = ' ';
-	return (new[j] = '\0', free(s1), new);
+    else if (!s1)
+    {
+        new = malloc(sizeof(char) * (ft_strlen(s2) + 2));
+        if (!new)
+            return (NULL);
+        while (s2[j])
+            new[i++] = s2[j++];
+        return (new[i++] = ' ', new[i] = '\0', new);
+    }
+    new = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
+    if (!new)
+        return (free(s1), NULL);
+    while (s1[i])
+        new[j++] = s1[i++];
+    i = 0;
+    while (s2[i])
+        new[j++] = s2[i++];
+    new[j++] = ' ';
+    return (new[j] = '\0', free(s1), new);
 }
 
 /**
@@ -175,5 +174,23 @@ int check_input(int ac, char **av, char ***str)
     }
     if (!is_dup(*str))
         return (free_splited(*str), 0);
+    return (1);
+}
+
+int if_only_space(int ac, char **av)
+{
+    int i;
+    int j;
+
+    i = 1;
+    while (i < ac)
+    {
+        j = 0;
+        while (av[i][j] && av[i][j] == ' ')
+            j++;
+        if (av[i][j] == '\0')
+            return (0);
+        i++;
+    }
     return (1);
 }

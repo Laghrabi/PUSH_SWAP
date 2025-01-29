@@ -10,11 +10,11 @@
  * Return: The converted integer value.
  */
 
-ssize_t	ft_atoi(const char *str)
+ssize_t ft_atoi(const char *str)
 {
-	int	i;
-	ssize_t	sign;
-	ssize_t	result;
+	int i;
+	ssize_t sign;
+	ssize_t result;
 
 	i = 0;
 	sign = 1;
@@ -44,9 +44,9 @@ ssize_t	ft_atoi(const char *str)
  * Return: Length of the string.
  */
 
-size_t	ft_strlen(const char *str)
+size_t ft_strlen(const char *str)
 {
-	size_t	i;
+	size_t i;
 
 	i = 0;
 	while (str[i])
@@ -64,10 +64,10 @@ size_t	ft_strlen(const char *str)
  * Return: Pointer to the newly allocated duplicate string or NULL on failure.
  */
 
-char	*ft_strdup(const char *str)
+char *ft_strdup(const char *str)
 {
-	size_t	i;
-	char	*new;
+	size_t i;
+	char *new;
 
 	new = malloc(sizeof(char) * ft_strlen(str) + 1);
 	if (!new)
@@ -94,11 +94,11 @@ char	*ft_strdup(const char *str)
  * Return: The substring or NULL on failure.
  */
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
+char *ft_substr(const char *s, unsigned int start, size_t len)
 {
-	size_t	sub_len;
-	size_t	i;
-	char	*sub;
+	size_t sub_len;
+	size_t i;
+	char *sub;
 
 	if (!s)
 		return (NULL);
@@ -130,11 +130,11 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
  * Return: Pointer to the array of strings or NULL on failure.
  */
 
-char	**ft_split(char const *s)
+char **ft_split(char const *s)
 {
-	char	**arr;
+	char **arr;
 
-	int (flag1), (flag2), (i), (j);
+	int(flag1), (flag2), (i), (j);
 	flag1 = 0;
 	flag2 = 0;
 	if (!s)
@@ -151,7 +151,7 @@ char	**ft_split(char const *s)
 		while (s[i] && s[i] != ' ' && s[i] != '\t')
 			flag2 = ++i;
 		if (flag2 < flag1)
-			break ;
+			break;
 		arr[j++] = ft_substr(s, flag1, (size_t)(flag2 - flag1));
 		if (!arr[j - 1])
 			return (free_array(arr, j));

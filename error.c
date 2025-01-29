@@ -6,7 +6,7 @@
 /*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:20:01 by claghrab          #+#    #+#             */
-/*   Updated: 2025/01/29 14:45:45 by claghrab         ###   ########.fr       */
+/*   Updated: 2025/01/29 14:58:50 by claghrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,23 +174,5 @@ int check_input(int ac, char **av, char ***str)
     }
     if (!is_dup(*str))
         return (free_splited(*str), 0);
-    return (1);
-}
-
-int if_only_space(int ac, char **av)
-{
-    int i;
-    int j;
-
-    i = 1;
-    while (i < ac)
-    {
-        j = 0;
-        while (av[i][j] && av[i][j] == ' ')
-            j++;
-        if (av[i][j] == '\0')
-            return (0);
-        i++;
-    }
     return (1);
 }

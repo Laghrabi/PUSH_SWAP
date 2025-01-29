@@ -26,7 +26,7 @@ char *ft_substr(const char *s, unsigned int start, size_t len);
 char **ft_split(char const *s);
 char *join(char *s1, char *s2);
 void free_splited(char **splited);
-char    **free_array(char **ptr, size_t i);
+char **free_array(char **ptr, size_t i);
 size_t count(char const *s);
 void exit_error(t_stack **stackA, t_stack **stackB);
 void clean_stack(t_stack **stack);
@@ -42,6 +42,7 @@ int ft_lstsize(t_stack *stack);
 int is_sign(char c);
 int is_digit(char c);
 int is_dup(char **av);
+int if_only_space(int ac, char **av);
 int check_input(int ac, char **av, char ***str);
 
 /* STACK OPERATIONS */

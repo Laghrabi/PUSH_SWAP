@@ -6,7 +6,7 @@
 /*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:22:32 by claghrab          #+#    #+#             */
-/*   Updated: 2025/01/31 11:24:16 by claghrab         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:06:51 by claghrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,4 +128,36 @@ void	sort_stackb(t_stack **stackA, t_stack **stackB)
 	}
 	if (i == 1)
 		pa(stackA, stackB);
+}
+
+/**
+ * sort_large_stack - Sorts a large stack using an index-based sorting approach.
+ * @stackA: Double pointer to stackA.
+ * @stackB: Double pointer to stackB (used as temporary storage).
+ * @size: Number of elements in stackA.
+ *
+ * Steps:
+ * 1. Allocates and sorts an array of stackA values.
+ * 2. Assigns index values to stackA based on sorted order.
+ * 3. Moves elements from stackA to stackB in chunks.
+
+	* 4. Sets positions and determines whether elements are
+	in the top or bottom half.
+ * 5. Sorts stackB and moves elements back to stackA.
+ *
+ * Return: Pointer to the sorted stackA.
+ */
+
+t_stack	*sort_large_stack(t_stack **stackA, t_stack **stackB, int size)
+{
+	int	*arr;
+
+	arr = allocate_array(*stackA, size);
+	set_index_stacka(*stackA, arr, size);
+	into_stackb(stackA, stackB, size);
+	set_position_stackb(*stackB);
+	bottom_or_top(*stackB);
+	sort_stackb(stackA, stackB);
+	free(arr);
+	return (*stackA);
 }

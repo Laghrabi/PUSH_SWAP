@@ -6,7 +6,7 @@
 /*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 12:29:17 by claghrab          #+#    #+#             */
-/*   Updated: 2025/01/31 12:30:48 by claghrab         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:53:21 by claghrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,7 @@ t_stack				*only_5(t_stack **stackA, t_stack **stackB);
 void				into_stackb(t_stack **stackA, t_stack **stackB, int size);
 void				sort_stackb(t_stack **stackA, t_stack **stackB);
 t_stack				*algo(t_stack *stackA, t_stack *stackB, int size);
+t_stack				*sort_large_stack(t_stack **stackA, \
+t_stack **stackB, int size);
 
 #endif

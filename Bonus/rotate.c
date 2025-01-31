@@ -6,7 +6,7 @@
 /*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:35:07 by claghrab          #+#    #+#             */
-/*   Updated: 2025/01/31 11:36:32 by claghrab         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:58:18 by claghrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	ra(t_stack **stackA)
 	last->next = *stackA;
 	(*stackA)->next = NULL;
 	*stackA = tmp;
-	write(1, "ra\n", 3);
 }
 
 /**

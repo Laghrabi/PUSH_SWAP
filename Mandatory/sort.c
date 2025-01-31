@@ -6,7 +6,7 @@
 /*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:36:47 by claghrab          #+#    #+#             */
-/*   Updated: 2025/01/31 12:31:12 by claghrab         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:55:24 by claghrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,6 @@ t_stack	*only_5(t_stack **stackA, t_stack **stackB)
 
 t_stack	*algo(t_stack *stackA, t_stack *stackB, int size)
 {
-	int	*arr;
-
 	if (if_sorted(stackA) == 0)
 	{
 		if (stackA == NULL || size == 0)
@@ -139,14 +137,7 @@ t_stack	*algo(t_stack *stackA, t_stack *stackB, int size)
 		else if (size <= 5)
 			return (only_5(&stackA, &stackB));
 		else
-		{
-			arr = allocate_array(stackA, size);
-			set_index_stacka(stackA, arr, size);
-			into_stackb(&stackA, &stackB, size);
-			set_position_stackb(stackB);
-			bottom_or_top(stackB);
-			sort_stackb(&stackA, &stackB);
-		}
+			return (sort_large_stack(&stackA, &stackB, size));
 	}
 	return (NULL);
 }

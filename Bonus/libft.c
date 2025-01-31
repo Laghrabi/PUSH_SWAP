@@ -1,4 +1,16 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/31 11:34:23 by claghrab          #+#    #+#             */
+/*   Updated: 2025/01/31 11:35:58 by claghrab         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "checker.h"
 
 /**
  * ft_atoi - Converts a string to an integer.
@@ -10,11 +22,11 @@
  * Return: The converted integer value.
  */
 
-ssize_t ft_atoi(const char *str)
+ssize_t	ft_atoi(const char *str)
 {
-	int i;
-	ssize_t sign;
-	ssize_t result;
+	int		i;
+	ssize_t	sign;
+	ssize_t	result;
 
 	i = 0;
 	sign = 1;
@@ -44,15 +56,15 @@ ssize_t ft_atoi(const char *str)
  * Return: Length of the string.
  */
 
-size_t ft_strlen(const char *str)
-{
-	size_t i;
+// size_t ft_strlen(const char *str)
+// {
+// 	size_t i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+// 	i = 0;
+// 	while (str[i])
+// 		i++;
+// 	return (i);
+// }
 
 /**
  * ft_strdup - Duplicates a string.
@@ -64,10 +76,10 @@ size_t ft_strlen(const char *str)
  * Return: Pointer to the newly allocated duplicate string or NULL on failure.
  */
 
-char *ft_strdup(const char *str)
+char	*ft_strdup(char *str)
 {
-	size_t i;
-	char *new;
+	size_t	i;
+	char	*new;
 
 	new = malloc(sizeof(char) * ft_strlen(str) + 1);
 	if (!new)
@@ -89,16 +101,18 @@ char *ft_strdup(const char *str)
  * @len: The maximum length of the substring.
  *
  * Allocates memory for the substring and returns it. Handles cases where
- * the start index is beyond the string length or the length exceeds available characters.
+
+	* the start index is beyond the string length or the length
+	exceeds available characters.
  *
  * Return: The substring or NULL on failure.
  */
 
-char *ft_substr(const char *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, int start, size_t len)
 {
-	size_t sub_len;
-	size_t i;
-	char *sub;
+	size_t	sub_len;
+	size_t	i;
+	char	*sub;
 
 	if (!s)
 		return (NULL);
@@ -130,11 +144,11 @@ char *ft_substr(const char *s, unsigned int start, size_t len)
  * Return: Pointer to the array of strings or NULL on failure.
  */
 
-char **ft_split(char const *s)
+char	**ft_split(char *s)
 {
-	char **arr;
+	char	**arr;
 
-	int(flag1), (flag2), (i), (j);
+	int (flag1), (flag2), (i), (j);
 	flag1 = 0;
 	flag2 = 0;
 	if (!s)
@@ -151,7 +165,7 @@ char **ft_split(char const *s)
 		while (s[i] && s[i] != ' ' && s[i] != '\t')
 			flag2 = ++i;
 		if (flag2 < flag1)
-			break;
+			break ;
 		arr[j++] = ft_substr(s, flag1, (size_t)(flag2 - flag1));
 		if (!arr[j - 1])
 			return (free_array(arr, j));

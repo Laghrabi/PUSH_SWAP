@@ -23,24 +23,24 @@
  * Return: Pointer to the sorted array, or NULL on failure.
  */
 
-int *allocate_array(t_stack *stackA, int size)
+int	*allocate_array(t_stack *stackA, int size)
 {
-    int i;
-    int *arr;
-    
-    if (stackA == NULL)
-        return (NULL);
-    arr = malloc(sizeof(int) * size);
-    if (arr == NULL)
-        return (NULL);
-    i = 0;
-    while (stackA)
-    {
-        arr[i++] = stackA->data;
-        stackA = stackA->next;
-    }
-    bubble_sort(arr, size);
-    return (arr);
+	int	i;
+	int	*arr;
+
+	if (stackA == NULL)
+		return (NULL);
+	arr = malloc(sizeof(int) * size);
+	if (arr == NULL)
+		return (NULL);
+	i = 0;
+	while (stackA)
+	{
+		arr[i++] = stackA->data;
+		stackA = stackA->next;
+	}
+	bubble_sort(arr, size);
+	return (arr);
 }
 
 /**
@@ -51,26 +51,26 @@ int *allocate_array(t_stack *stackA, int size)
  * Repeatedly compares adjacent elements and swaps them if out of order.
  */
 
-void    bubble_sort(int *arr, int size)
+void	bubble_sort(int *arr, int size)
 {
-    int i;
-    int j;
-    int tmp;
-    
-    i = 0;
-    while (i < size - 1)
-    {
-        j = 0;
-        while (j < size - i - 1)
-        {
-            if (arr[j] > arr[j + 1])
-            {
-                tmp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = tmp;
-            }
-            j++;
-        }
-        i++;
-    }
+	int	i;
+	int	j;
+	int	tmp;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		j = 0;
+		while (j < size - i - 1)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				tmp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = tmp;
+			}
+			j++;
+		}
+		i++;
+	}
 }

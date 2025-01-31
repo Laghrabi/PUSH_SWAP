@@ -17,20 +17,21 @@
  * @stackA: Double pointer to stackA.
  * @stackB: Double pointer to stackB.
  *
- * If stackB is not empty, moves the top element from stackB to stackA and prints "pa".
+ * If stackB is not empty,
+	moves the top element from stackB to stackA and prints "pa".
  */
 
-void    pa(t_stack **stackA, t_stack **stackB)
+void	pa(t_stack **stackA, t_stack **stackB)
 {
-    t_stack *tmp;
+	t_stack	*tmp;
 
-    if (!stackB || !(*stackB))
-        return ;
-    tmp = *stackB;
-    *stackB = (*stackB)->next;
-    tmp->next = *stackA;
-    *stackA = tmp;
-    write(1, "pa\n", 3);
+	if (!stackB || !(*stackB))
+		return ;
+	tmp = *stackB;
+	*stackB = (*stackB)->next;
+	tmp->next = *stackA;
+	*stackA = tmp;
+	write(1, "pa\n", 3);
 }
 
 /**
@@ -38,18 +39,19 @@ void    pa(t_stack **stackA, t_stack **stackB)
  * @stackA: Double pointer to stackA.
  * @stackB: Double pointer to stackB.
  *
- * If stackA is not empty, moves the top element from stackA to stackB and prints "pb".
+ * If stackA is not empty,
+	moves the top element from stackA to stackB and prints "pb".
  */
 
-void    pb(t_stack **stackA, t_stack **stackB)
+void	pb(t_stack **stackA, t_stack **stackB)
 {
-    t_stack *tmp;
+	t_stack	*tmp;
 
-    if (!stackA || !(*stackA))
-        return ;
-    tmp = *stackA;
-    *stackA = (*stackA)->next;
-    tmp->next = *stackB;
-    *stackB = tmp;
-    write(1, "pb\n", 3);
+	if (!stackA || !(*stackA))
+		return ;
+	tmp = *stackA;
+	*stackA = (*stackA)->next;
+	tmp->next = *stackB;
+	*stackB = tmp;
+	write(1, "pb\n", 3);
 }

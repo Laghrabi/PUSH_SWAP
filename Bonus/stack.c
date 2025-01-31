@@ -6,17 +6,18 @@
 /*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:39:49 by claghrab          #+#    #+#             */
-/*   Updated: 2025/01/28 19:40:48 by claghrab         ###   ########.fr       */
+/*   Updated: 2025/01/31 10:18:22 by claghrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 /**
  * ft_lstnew - Creates a new stack node.
  * @content: The value to store in the new node.
  *
- * Allocates memory for a new stack node, sets its data to `content`, and initializes `next` to NULL.
+ * Allocates memory for a new stack node, sets its data to `content`,
+	and initializes `next` to NULL.
  * Returns the new node or NULL if allocation fails.
  */
 
@@ -57,7 +58,8 @@ t_stack	*ft_lstlast(t_stack *lst)
  * @lst: Double pointer to the first node of the stack.
  * @new: Pointer to the node to add.
  *
- * Adds the `new` node to the end of the stack. If the stack is empty, `new` becomes the first node.
+ * Adds the `new` node to the end of the stack. If the stack is empty,
+	`new` becomes the first node.
  */
 
 void	ft_lstadd_back(t_stack **lst, t_stack *new)

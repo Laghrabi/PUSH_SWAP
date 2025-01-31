@@ -19,9 +19,9 @@
  * Return: 1 if the character is a sign, 0 otherwise.
  */
 
-int is_sign(char c)
+int	is_sign(char c)
 {
-    return (c == '+' || c == '-');
+	return (c == '+' || c == '-');
 }
 
 /**
@@ -31,9 +31,9 @@ int is_sign(char c)
  * Return: 1 if the character is a digit, 0 otherwise.
  */
 
-int is_digit(char c)
+int	is_digit(char c)
 {
-    return (c >= '0' && c <= '9');
+	return (c >= '0' && c <= '9');
 }
 
 /**
@@ -43,19 +43,19 @@ int is_digit(char c)
  * Frees each node and sets the stack pointer to NULL.
  */
 
-void    clean_stack(t_stack **stack)
+void	clean_stack(t_stack **stack)
 {
-    t_stack *tmp;
+	t_stack	*tmp;
 
-    if (!stack || !(*stack))
-        return ;
-    while (*stack)
-    {
-        tmp = (*stack)->next;
-        free(*stack);
-        *stack = tmp;
-    }
-    *stack = NULL;
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
 }
 
 /**
@@ -65,15 +65,17 @@ void    clean_stack(t_stack **stack)
  * Frees each string and the array itself.
  */
 
-void free_splited(char **splited)
+void	free_splited(char **splited)
 {
-    unsigned int i = 0;
-    if (!splited)
-        return ;
-    while (splited[i])
-    {
-        free(splited[i]);
-        i++;
-    }
-    free(splited);
+	unsigned int	i;
+
+	i = 0;
+	if (!splited)
+		return ;
+	while (splited[i])
+	{
+		free(splited[i]);
+		i++;
+	}
+	free(splited);
 }

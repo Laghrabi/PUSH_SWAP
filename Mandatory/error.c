@@ -6,7 +6,7 @@
 /*   By: claghrab <claghrab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:20:01 by claghrab          #+#    #+#             */
-/*   Updated: 2025/01/29 14:58:50 by claghrab         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:28:50 by claghrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,20 @@
  * Return: 1 if the string is a number, 0 otherwise.
  */
 
-int is_number(char *av)
+int	is_number(char *av)
 {
-    int i;
+	int	i;
 
-    if (!av)
-        return 0;
-    i = 0;
-    if (is_sign(av[i]) && av[i + 1] != '\0')
-        i++;
-    while (av[i] && is_digit(av[i]))
-        i++;
-    if (av[i] && !is_digit(av[i]))
-        return (0);
-    return (1);
+	if (!av)
+		return (0);
+	i = 0;
+	if (is_sign(av[i]) && av[i + 1] != '\0')
+		i++;
+	while (av[i] && is_digit(av[i]))
+		i++;
+	if (av[i] && !is_digit(av[i]))
+		return (0);
+	return (1);
 }
 
 /**
@@ -48,30 +48,30 @@ int is_number(char *av)
  * Return: 1 if no duplicates, 0 otherwise.
  */
 
-int is_dup(char **av)
+int	is_dup(char **av)
 {
-    int a;
-    int b;
-    int j;
-    int i;
+	int	a;
+	int	b;
+	int	j;
+	int	i;
 
-    if (!av || !(*av))
-        return 0;
-    i = 0;
-    while (av[i])
-    {
-        a = ft_atoi(av[i]);
-        j = i + 1;
-        while (av[j])
-        {
-            b = ft_atoi(av[j]);
-            if (a == b)
-                return (0);
-            j++;
-        }
-        i++;
-    }
-    return (1);
+	if (!av || !(*av))
+		return (0);
+	i = 0;
+	while (av[i])
+	{
+		a = ft_atoi(av[i]);
+		j = i + 1;
+		while (av[j])
+		{
+			b = ft_atoi(av[j]);
+			if (a == b)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }
 
 /**
@@ -84,14 +84,14 @@ int is_dup(char **av)
  * Return: Does not return (exits program).
  */
 
-void exit_error(t_stack **stackA, t_stack **stackB)
+void	exit_error(t_stack **stackA, t_stack **stackB)
 {
-    if (stackA != NULL && *stackA != NULL)
-        clean_stack(stackA);
-    if (stackB != NULL && *stackB != NULL)
-        clean_stack(stackB);
-    write(2, "Error\n", 6);
-    exit(1);
+	if (stackA != NULL && *stackA != NULL)
+		clean_stack(stackA);
+	if (stackB != NULL && *stackB != NULL)
+		clean_stack(stackB);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 /**
@@ -105,34 +105,33 @@ void exit_error(t_stack **stackA, t_stack **stackB)
  * Return: Pointer to the concatenated string or NULL on failure.
  */
 
-char *join(char *s1, char *s2)
+char	*join(char *s1, char *s2)
 {
-    char *new;
+	char	*new;
 
-    int(i), (j);
-    i = 0;
-    j = 0;
-    if (!s2[i])
-        return (NULL);
-    else if (!s1)
-    {
-        new = malloc(sizeof(char) * (ft_strlen(s2) + 2));
-        if (!new)
-            return (NULL);
-        while (s2[j])
-            new[i++] = s2[j++];
-        return (new[i++] = ' ', new[i] = '\0', new);
-    }
-    new = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
-    if (!new)
-        return (free(s1), NULL);
-    while (s1[i])
-        new[j++] = s1[i++];
-    i = 0;
-    while (s2[i])
-        new[j++] = s2[i++];
-    new[j++] = ' ';
-    return (new[j] = '\0', free(s1), new);
+	int (i), (j);
+	i = 0;
+	j = 0;
+	if (!s2[i])
+		return (NULL);
+	else if (!s1)
+	{
+		new = malloc(sizeof(char) * (ft_strlen(s2) + 2));
+		if (!new)
+			return (NULL);
+		while (s2[j])
+			new[i++] = s2[j++];
+		return (new[i++] = ' ', new[i] = '\0', new);
+	}
+	new = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
+	if (!new)
+		return (free(s1), NULL);
+	while (s1[i])
+		new[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		new[j++] = s2[i++];
+	return (new[j++] = ' ', new[j] = '\0', free(s1), new);
 }
 
 /**
@@ -148,31 +147,31 @@ char *join(char *s1, char *s2)
  * Return: 1 if input is valid, 0 otherwise.
  */
 
-int check_input(int ac, char **av, char ***str)
+int	check_input(int ac, char **av, char ***str)
 {
-    int i;
-    char *buffer = NULL;
+	int		i;
+	char	*buffer;
 
-    i = 1;
-    while (i < ac)
-    {
-        buffer = join(buffer, av[i]);
-        if (!buffer)
-            return (0);
-        i++;
-    }
-    *str = ft_split(buffer);
-    free(buffer);
-    if (!(*str) || !(*str[0]))
-        return (0);
-    i = 0;
-    while ((*str)[i])
-    {
-        if (!is_number((*str)[i]))
-            return (free_splited(*str), 0);
-        i++;
-    }
-    if (!is_dup(*str))
-        return (free_splited(*str), 0);
-    return (1);
+	buffer = NULL;
+	i = 1;
+	while (i < ac)
+	{
+		buffer = join(buffer, av[i]);
+		if (!buffer)
+			return (0);
+		i++;
+	}
+	*str = ft_split(buffer);
+	free(buffer);
+	if (!(*str) || !(*str[0]))
+		return (0);
+	i = -1;
+	while ((*str)[++i])
+	{
+		if (!is_number((*str)[i]))
+			return (free_splited(*str), 0);
+	}
+	if (!is_dup(*str))
+		return (free_splited(*str), 0);
+	return (1);
 }
